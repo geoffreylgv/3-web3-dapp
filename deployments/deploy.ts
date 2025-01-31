@@ -4,12 +4,11 @@ async function main() {
   const HelloWorld = await ethers.getContractFactory("HelloWorld");
   const helloWorld = await HelloWorld.deploy("Hello World!");
 
-  await helloWorld.deployed(); // Ensure the contract is deployed before proceeding
+  await helloWorld.deployed(); // Ensure deployment completes
 
-  console.log("Contract Deployed to Address:", helloWorld.address);
+  console.log("Contract deployed to:", helloWorld.address);
 }
 
-// Run the deployment script with error handling
 main()
   .then(() => process.exit(0))
   .catch((error) => {

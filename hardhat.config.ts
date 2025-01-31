@@ -1,17 +1,18 @@
 import { HardhatUserConfig } from "hardhat/config";
-import * as dotenv from "dotenv";
+import "@nomicfoundation/hardhat-toolbox";
+import dotenv from "dotenv";
+
 dotenv.config();
 
 const { API_URL, PRIVATE_KEY } = process.env;
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.28",
+  solidity: "0.8.18",
   defaultNetwork: "sepolia",
   networks: {
-    hardhat: {},
     sepolia: {
-      url: API_URL || "",
-      accounts: PRIVATE_KEY ? [`0x${PRIVATE_KEY}`] : [],
+      url: API_URL,
+      accounts: [`0x${PRIVATE_KEY}`],
     },
   },
 };
